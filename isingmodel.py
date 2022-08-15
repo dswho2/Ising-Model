@@ -3,18 +3,21 @@ import matplotlib.pyplot as plt
 import time
 from IPython.display import clear_output
 
+import os
+import imageio
+
 #Ising simulation implemented with a monte carlo method, the metropolis-hastings algorithm
 
 #bias term
 
 
-epochs = 50000
-T = 3 #unit: J/kb
+epochs = 25000
+T = 1 #unit: J/kb
 gridSize = 64
 
 grid = np.random.random((gridSize, gridSize))
 grid[grid>0.5] = 1
-grid[grid<= 0.5] = 1
+grid[grid<= 0.5] = -1
 
 def printGrid():
   for i in range(len(grid)):
@@ -22,6 +25,8 @@ def printGrid():
       print(grid[i][j], end=" | ")
     print()
   plt.imshow(grid)
+
+
 
 
 def boundary(i):
@@ -36,8 +41,11 @@ def hamiltonian(i, j):
   # return -grid[i,j]*(grid[max(0,i - 1), j] + grid[min(gridSize-1, i + 1), j] + grid[i, max(0, j - 1)] + grid[i, min(gridSize-1, j + 1)])
   return -grid[i,j]*(grid[boundary(i - 1), j] + grid[boundary(i + 1), j] + grid[i, boundary(j - 1)] + grid[i, boundary(j + 1)]) #periodic boundary condition
 
+filenames = []
+
 #metropolis-hastings algorithm
 def run(draw=False, frames = 500):
+  j=0
   for i in range(epochs):
     x, y = np.random.randint(0, gridSize), np.random.randint(0, gridSize)
 
@@ -51,9 +59,19 @@ def run(draw=False, frames = 500):
     if i % frames == 0 and draw:
       plt.figure(figsize=(10,10))
       plt.imshow(grid)
+      
+      filename = f'{j}.png'
+      filenames.append(filename)
+      # save frame
+      plt.savefig(filename)
+      j+=1
+
       plt.show()
+
       time.sleep(0.01)
       clear_output(wait=True)
+
+
 
 # Sweep Temperature
 N = 11 #number of temperature points
@@ -75,3 +93,17 @@ plt.figure(figsize=(10,6))
 plt.plot(temperatures, Mavg);
 plt.xlabel('Temperature ($J/K_b$)');
 plt.ylabel('$<M>$');
+
+
+
+run(True)
+# build gif
+with imageio.get_writer('Ising_Simulation.gif', mode='I') as writer:
+    for filename in filenames:
+        image = imageio.imread(filename)
+        writer.append_data(image)
+        
+
+# Remove files
+for filename in set(filenames):
+    os.remove(filename)
