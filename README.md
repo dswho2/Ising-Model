@@ -1,6 +1,6 @@
 # Ising-Model
 
-A simulation of the Ising Model of ferromagnetism using Python
+A simulation of the Ising Model of ferromagnetism using Python. Ising model is implemented with a Monte Carlo method, the Metropolis-Hastings algorithm.
 
 <img src="https://user-images.githubusercontent.com/20306067/184579222-d0391107-180a-4432-9ea6-3a20f7e5c70b.png" width="600" height="350"/>
 
