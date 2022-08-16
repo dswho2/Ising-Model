@@ -5,11 +5,11 @@ A simulation of the Ising Model of ferromagnetism using Python. The Ising model 
 The model is a square lattice of sites that can be in one of two states, -1 or +1. In this simulation, each state represent  the atomic spins. When these atomic spins align together, their generated magnetic dipole moments point in the same direction and they yield a net macroscopic magnetic moment, causing ferromagnetism.
 
 
-| <img src="https://user-images.githubusercontent.com/20306067/184581895-538f8615-de3d-47f0-89c7-5ae2a7907a5f.gif" width="400" height="400"/> | <img src="https://user-images.githubusercontent.com/20306067/184627408-a57de0bc-2f02-4aba-9320-363601357df1.gif" width="400" height="400"/> |
+| <img src="https://user-images.githubusercontent.com/20306067/184792937-ef20076d-591d-40e7-b7ec-ec9c576f4e9f.gif" width="400" height="400"/> | <img src="https://user-images.githubusercontent.com/20306067/184792944-3eb047b2-430e-4fa3-9448-0a21fbac3729.gif" width="400" height="400"/> |
 | :-: | :-: |
-| *25,000 epochs at 1 J/K<sub>b</sub> Temperature* | *25,000 epochs at 2 J/K<sub>b</sub> Temperature* |
-| <img src="https://user-images.githubusercontent.com/20306067/184628593-f495b5c1-9ef4-4ed6-897e-7cac22b9bf5c.gif" width="400" height="400"/> | <img src="https://user-images.githubusercontent.com/20306067/184628602-e8bbe530-3da4-4426-926d-06b89f024006.gif" width="400" height="400"/> |
-| *25,000 epochs at 3 J/K<sub>b</sub> Temperature* | *25,000 epochs at 4 J/K<sub>b</sub> Temperature* |
+| *50,000 epochs at 1 J/K<sub>b</sub> Temperature* | *50,000 epochs at 2 J/K<sub>b</sub> Temperature* |
+| <img src="https://user-images.githubusercontent.com/20306067/184792948-6d93435f-c6cb-455f-bb9f-ac42d191603c.gif" width="400" height="400"/> | <img src="https://user-images.githubusercontent.com/20306067/184792951-ac8c5614-f9c6-4dd6-bc87-8a2508e8f8bd.gif" width="400" height="400"/> |
+| *50,000 epochs at 3 J/K<sub>b</sub> Temperature* | *50,000 epochs at 4 J/K<sub>b</sub> Temperature* |
 
 <br></br>
 
