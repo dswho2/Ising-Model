@@ -11,9 +11,9 @@ import imageio
 #bias term
 
 
-epochs = 25000
+epochs = 500000
 T = 1 #unit: J/kb
-gridSize = 64
+gridSize = 128
 
 grid = np.random.random((gridSize, gridSize))
 grid[grid>0.5] = 1
@@ -44,7 +44,7 @@ def hamiltonian(i, j):
 filenames = []
 
 #metropolis-hastings algorithm
-def run(draw=False, frames = 500):
+def run(draw=False, frames = 5000):
   j=0
   for i in range(epochs):
     x, y = np.random.randint(0, gridSize), np.random.randint(0, gridSize)
@@ -57,8 +57,8 @@ def run(draw=False, frames = 500):
       grid[x,y] *= -1
 
     if i % frames == 0 and draw:
-      plt.figure(figsize=(10,10))
-      plt.imshow(grid)
+      plt.figure(figsize=(5,5))
+      plt.imshow(grid, cmap="Blues")
       
       filename = f'{j}.png'
       filenames.append(filename)
@@ -74,7 +74,7 @@ def run(draw=False, frames = 500):
 
 
 # Sweep Temperature
-N = 11 #number of temperature points
+N = 51 #number of temperature points
 n_avg = 5 #number of simulations to average
 temperatures = np.linspace(1,10,N) #unit J/Kb
 Mavg = np.zeros(N)
@@ -90,6 +90,7 @@ for i in range(len(temperatures)):
   Mavg[i] = np.mean(M)
   
 plt.figure(figsize=(10,6))
+plt.title("Magnetism vs Temperature")
 plt.plot(temperatures, Mavg);
 plt.xlabel('Temperature ($J/K_b$)');
 plt.ylabel('$<M>$');
