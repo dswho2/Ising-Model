@@ -14,3 +14,4 @@ The model is a square lattice of sites that can be in one of two states, -1 or +
 <br></br>
 
 <img src="https://user-images.githubusercontent.com/20306067/184806400-2007acf9-3b61-40f3-aa00-9dba59f903cd.png" width="600" height="350"/>
+500,000 epochs each run
